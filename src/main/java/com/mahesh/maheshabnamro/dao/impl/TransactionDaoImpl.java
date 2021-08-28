@@ -8,6 +8,8 @@ import com.mahesh.maheshabnamro.repository.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.List;
 
 
@@ -25,7 +27,7 @@ public class TransactionDaoImpl implements TransactionDao {
         transactionEntity.setToAccountNumber(transactionDto.getToAccountNumber());
         transactionEntity.setStatus(status);
         transactionEntity.setId(transactionRepository.getMaxId() + 1);
-//        transactionEntity.setCreationDate(new Date());
+        transactionEntity.setCreationDate(new Timestamp(System.currentTimeMillis()));
         return transactionRepository.save(transactionEntity);
     }
 

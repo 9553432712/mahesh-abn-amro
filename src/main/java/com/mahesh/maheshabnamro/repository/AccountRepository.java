@@ -14,7 +14,7 @@ import java.math.BigDecimal;
 public interface AccountRepository extends JpaRepository<AccountEntity, String> {
     AccountEntity findByAccountNumber(String accountNumber);
 
-    @Query(value = "SELECT coalesce(max(id), 1) FROM AccountEntity")
+    @Query(value = "SELECT coalesce(max(id), 0) FROM AccountEntity")
     public Long getMaxId();
 
     @Transactional

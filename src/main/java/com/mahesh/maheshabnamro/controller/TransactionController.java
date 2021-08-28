@@ -20,12 +20,12 @@ public class TransactionController {
         return transactionService.makeTransaction(transactionDto);
     }
 
-    @PostMapping("/get-all")
+    @GetMapping("/get-all")
     public List<TransactionEntity> getAll(){
         return transactionService.getAll();
     }
 
-    @PostMapping("/get/{id}")
+    @GetMapping("/get/{id}")
     public TransactionEntity getById(@PathVariable("id") long id){
         return transactionService.getByTransactionId(id);
     }
